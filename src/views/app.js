@@ -3,11 +3,11 @@ var AppView = Backbone.View.extend({
   el: '#app',
 
   //listening to the collection or the models and knowing which is currently selected?
-  // event: {'all': 'handleEvent'},
+  event: {'all': 'handleEvent'},
 
-  // handleEvent: function(event) {
-  //   console.log('AppView select event:', event);
-  // },
+  handleEvent: function(event) {
+    console.log('AppView select event:', event);
+  },
 
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);  //this is the collection
@@ -22,9 +22,9 @@ var AppView = Backbone.View.extend({
     this.$el.html(this.template());
     //this.$el.html('<p>HEY THERE</p>');
     let currentCollection = this.videos;
-    new VideoListView({ el: '.list', collection: currentCollection}).render();
-    new VideoPlayerView({el: '.player', collection: currentCollection}).render(currentCollection.models[3].attributes);
-
+    new VideoListView({ el: this.$('.list'), collection: currentCollection}).render();
+    new VideoPlayerView({el: this.$('.player'), collection: currentCollection.at(0)}).render(currentCollection.models[3].attributes);
+    new SearchView({el: this.$('.search'), collection: currentCollection}).render();
 
     return this;
   },

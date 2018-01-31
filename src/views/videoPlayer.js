@@ -4,9 +4,9 @@ var VideoPlayerView = Backbone.View.extend({
   //need one video model to feed this.template
   //collection[0] - current model
 
-  initialize: function() {
-    this.collection.on('select', this.render.bind(this));
-  },
+  // initialize: function() {
+  //   this.collection.on('select', this.render.bind(this));
+  // },
 
   render: function(modelAttributes) {
     this.$el.html(this.template.call(modelAttributes));
