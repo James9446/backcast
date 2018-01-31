@@ -7,6 +7,8 @@ var Video = Backbone.Model.extend({
 
   select: function() {
     this.trigger('select', this);
+    //this does something to go up the pipeline to 
+    //App View to hear which is currently selected
   }
 
 });
