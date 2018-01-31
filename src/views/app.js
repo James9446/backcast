@@ -3,11 +3,11 @@ var AppView = Backbone.View.extend({
   el: '#app',
 
   //listening to the collection or the models and knowing which is currently selected?
-  event: {'all': 'handleEvent'},
+  // event: {'all': 'handleEvent'},
 
-  handleEvent: function(event) {
-    console.log('AppView select event:', event)
-  },
+  // handleEvent: function(event) {
+  //   console.log('AppView select event:', event);
+  // },
 
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);  //this is the collection
